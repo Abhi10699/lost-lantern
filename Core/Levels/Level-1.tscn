@@ -1,42 +1,109 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7v4lmm5l0fw1"]
+[gd_scene load_steps=5 format=3 uid="uid://b7v4lmm5l0fw1"]
 
 [ext_resource type="PackedScene" uid="uid://chlyugnfydgri" path="res://Core/Entities/Player/Player.tscn" id="1_b7dlm"]
-[ext_resource type="PackedScene" uid="uid://dee8ebvaupavo" path="res://Core/Platformer/BasePlatform.tscn" id="2_onn8k"]
+[ext_resource type="PackedScene" uid="uid://dee8ebvaupavo" path="res://Core/World/BasePlatform.tscn" id="2_onn8k"]
+[ext_resource type="PackedScene" uid="uid://ftdfj62u47gt" path="res://Core/Entities/Fragments/FragmentBase.tscn" id="3_fw4ha"]
+[ext_resource type="PackedScene" uid="uid://ljnn2wq6kkao" path="res://Core/World/Tunnel/Tunnel.tscn" id="3_nxurn"]
 
 [node name="Level1" type="Node2D"]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0214346, 0.0214346, 0.0214346, 1)
+[node name="Lighting" type="Node2D" parent="."]
 
-[node name="Background" type="ColorRect" parent="."]
-offset_right = 384.0
-offset_bottom = 217.0
+[node name="CanvasModulate" type="CanvasModulate" parent="Lighting"]
+color = Color(0.00820202, 0.00820203, 0.00820202, 1)
+
+[node name="Background" type="ColorRect" parent="Lighting"]
+texture_repeat = 2
+offset_right = 2056.0
+offset_bottom = 816.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
 
-[node name="Player" parent="." instance=ExtResource("1_b7dlm")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_b7dlm")]
 position = Vector2(0, 192)
+JUMP_VELOCITY = -300.0
 
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="BasePlatform" parent="Platforms" instance=ExtResource("2_onn8k")]
-position = Vector2(0, 201)
+position = Vector2(0, 200)
+
+[node name="Polygon2D" parent="Platforms/BasePlatform" index="0"]
+color = Color(0.305882, 0.211765, 0.160784, 1)
 
 [node name="BasePlatform2" parent="Platforms" instance=ExtResource("2_onn8k")]
-position = Vector2(64, 201)
+position = Vector2(64, 200)
 
-[node name="BasePlatform3" parent="Platforms" instance=ExtResource("2_onn8k")]
-position = Vector2(128, 201)
+[node name="Polygon2D" parent="Platforms/BasePlatform2" index="0"]
+color = Color(0.305882, 0.211765, 0.160784, 1)
 
 [node name="BasePlatform4" parent="Platforms" instance=ExtResource("2_onn8k")]
-position = Vector2(192, 201)
+position = Vector2(128, 200)
 
-[node name="BasePlatform5" parent="Platforms" instance=ExtResource("2_onn8k")]
-position = Vector2(249, 201)
-
-[node name="BasePlatform6" parent="Platforms" instance=ExtResource("2_onn8k")]
-position = Vector2(312, 201)
+[node name="Polygon2D" parent="Platforms/BasePlatform4" index="0"]
+color = Color(0.305882, 0.211765, 0.160784, 1)
 
 [node name="BasePlatform7" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(192, 160)
+
+[node name="Polygon2D" parent="Platforms/BasePlatform7" index="0"]
+color = Color(0.305882, 0.211765, 0.160784, 1)
+
+[node name="BasePlatform5" parent="Platforms" instance=ExtResource("2_onn8k")]
 position = Vector2(320, 200)
+
+[node name="Polygon2D" parent="Platforms/BasePlatform5" index="0"]
+color = Color(0.305882, 0.211765, 0.160784, 1)
+
+[node name="BasePlatform9" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(449, 233)
+
+[node name="Polygon2D" parent="Platforms/BasePlatform9" index="0"]
+color = Color(0.305882, 0.211765, 0.160784, 1)
+
+[node name="BasePlatform10" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(513, 233)
+
+[node name="Polygon2D" parent="Platforms/BasePlatform10" index="0"]
+color = Color(0.305882, 0.211765, 0.160784, 1)
+
+[node name="BasePlatform11" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(577, 233)
+
+[node name="Polygon2D" parent="Platforms/BasePlatform11" index="0"]
+color = Color(0.305882, 0.211765, 0.160784, 1)
+
+[node name="BasePlatform12" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(641, 233)
+
+[node name="Polygon2D" parent="Platforms/BasePlatform12" index="0"]
+color = Color(0.305882, 0.211765, 0.160784, 1)
+
+[node name="BasePlatform6" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(256, 200)
+
+[node name="Polygon2D" parent="Platforms/BasePlatform6" index="0"]
+color = Color(0.305882, 0.211765, 0.160784, 1)
+
+[node name="Tunnel" parent="Platforms" instance=ExtResource("3_nxurn")]
+position = Vector2(699, 179)
+NextScene = "res://Core/Levels/StagingLevel.tscn"
+
+[node name="Fragments" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="FragmentBase" parent="Fragments" instance=ExtResource("3_fw4ha")]
+position = Vector2(152, 184)
+scale = Vector2(0.0986606, 0.117059)
+
+[editable path="Platforms/BasePlatform"]
+[editable path="Platforms/BasePlatform2"]
+[editable path="Platforms/BasePlatform4"]
+[editable path="Platforms/BasePlatform7"]
+[editable path="Platforms/BasePlatform5"]
+[editable path="Platforms/BasePlatform9"]
+[editable path="Platforms/BasePlatform10"]
+[editable path="Platforms/BasePlatform11"]
+[editable path="Platforms/BasePlatform12"]
+[editable path="Platforms/BasePlatform6"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ljnn2wq6kkao"]
+
+[ext_resource type="Script" path="res://Core/World/Tunnel/Tunnel.gd" id="1_bvv28"]
+[ext_resource type="Texture2D" uid="uid://x3q5i7v7wrwx" path="res://Assets/LightTexture.png" id="1_i0msq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0d6v"]
+size = Vector2(15.8769, 63.788)
+
+[node name="Tunnel" type="Area2D"]
+script = ExtResource("1_bvv28")
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(5.88107, -10.1189)
+rotation = 1.5708
+color = Color(0.216, 0.72, 0, 1)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 8, 64, 16, 8.93865, 16, 0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.06156, 21.894)
+shape = SubResource("RectangleShape2D_c0d6v")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("1_i0msq")
+texture_scale = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

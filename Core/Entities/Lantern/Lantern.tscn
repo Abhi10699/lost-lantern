@@ -74,7 +74,7 @@ libraries = {
 autoplay = "Idle"
 speed_scale = 0.5
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="AreaLight" type="PointLight2D" parent="."]
 position = Vector2(0, -70)
 texture = ExtResource("3_apycx")
 texture_scale = 3.0
