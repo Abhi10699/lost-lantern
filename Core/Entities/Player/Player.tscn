@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://chlyugnfydgri"]
+
+[ext_resource type="Script" path="res://Core/Entities/Player/Player.gd" id="1_suob6"]
+[ext_resource type="PackedScene" uid="uid://bo7e3ybxlkr8" path="res://Core/Entities/Lantern/Lantern.tscn" id="2_5gtmi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2khm"]
+size = Vector2(1, 2.73711)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmucl"]
+size = Vector2(1, 2.74903)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(7, 7)
+script = ExtResource("1_suob6")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(1, 1.37)
+color = Color(0.65084, 0.366172, 0, 1)
+polygon = PackedVector2Array(0, 1, 1, 1, 1, 0, 1, -1, 0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.496156, -0.00348568)
+shape = SubResource("RectangleShape2D_r2khm")
+
+[node name="Lantern" parent="." instance=ExtResource("2_5gtmi")]
+position = Vector2(-0.714286, -0.714286)
+scale = Vector2(0.009, 0.009)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.496349, -0.00149987)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_bmucl")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

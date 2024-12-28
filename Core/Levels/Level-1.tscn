@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7v4lmm5l0fw1"]
+
+[ext_resource type="PackedScene" uid="uid://chlyugnfydgri" path="res://Core/Entities/Player/Player.tscn" id="1_b7dlm"]
+[ext_resource type="PackedScene" uid="uid://dee8ebvaupavo" path="res://Core/Platformer/BasePlatform.tscn" id="2_onn8k"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0214346, 0.0214346, 0.0214346, 1)
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 384.0
+offset_bottom = 217.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_b7dlm")]
+position = Vector2(0, 192)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="BasePlatform" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(0, 201)
+
+[node name="BasePlatform2" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(64, 201)
+
+[node name="BasePlatform3" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(128, 201)
+
+[node name="BasePlatform4" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(192, 201)
+
+[node name="BasePlatform5" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(249, 201)
+
+[node name="BasePlatform6" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(312, 201)
+
+[node name="BasePlatform7" parent="Platforms" instance=ExtResource("2_onn8k")]
+position = Vector2(320, 200)
